@@ -1,0 +1,12 @@
+name: netlab-snmp-notifications-service
+services:
+  snmp:
+    build: ./build/
+    volumes:
+      - type: bind
+        source: ./snmptrapd.conf
+        target: /etc/snmp/snmptrapd.conf
+    ports:
+      - protocol: udp
+        target: 162
+        published: 162
